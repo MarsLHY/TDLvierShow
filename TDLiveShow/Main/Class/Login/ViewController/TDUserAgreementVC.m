@@ -7,7 +7,6 @@
 //
 
 #import "TDUserAgreementVC.h"
-#import "TCLoginModel.h"
 #import "AppDelegate.h"
 
 @interface TDUserAgreementVC ()
@@ -67,11 +66,7 @@
 
 -(void)unAgree{
     AppDelegate *app = [UIApplication sharedApplication].delegate;
-    [[TCLoginModel sharedInstance] logout:^{
-        [app enterLoginUI];
-    } fail:^(int code, NSString *msg) {
-        [app enterLoginUI];
-    }];
+    
 }
 
 -(void)agree{

@@ -10,7 +10,6 @@
 #import "TXRTMPSDK/TXLivePlayer.h"
 #import "MainController.h"
 #import "TDLoginViewController.h"
-#import "TCLog.h"
 #import "TCConstants.h"
 #import <Bugly/Bugly.h>
 #import "TDUserAgreementVC.h"
@@ -25,10 +24,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self initCrashReport];
-    
-    //初始化log模块
-    [TXLiveBase sharedInstance].delegate = [TCLog shareInstance];
-    
+        
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

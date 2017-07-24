@@ -25,8 +25,13 @@
 
 - (void)creatUI{
     UIImageView *bgImg = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 118)];
-    bgImg.image = [UIImage imageNamed:@"loginBG.jpg"];
+    bgImg.image = [UIImage imageNamed:@"bbb.jpg"];
     [self addSubview:bgImg];
+}
+
+- (TCLiveInfo *)model{
+    
+    return _model;
 }
 
 @end

@@ -39,15 +39,11 @@ alpha:1.0]
 
 //腾讯framework
 #import "TCConstants.h"
-#import "TCUtil.h"
 
-//腾讯工具类
-#import "UIColor+MLPFlatColors.h"
-#import "HUDHelper.h"
-#import "UIView+Additions.h"
-
-//代码中个别类
-#import "TDBaseAppdelegate.h"
-#import "AppDelegate.h"
+//网络请求必用类别
+#import "TDRequestModel.h"
+#import "TDRequestAPI.h"
+#import "TDNetworkManager.h"
+#import "MD5And3DES.h"
 
 #endif /* Common_h */

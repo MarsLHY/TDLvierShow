@@ -13,8 +13,8 @@
 //小直播相关配置请参考:https://www.qcloud.com/document/product/454/7999
 //************在腾讯云开通各项服务后，将您的配置替换到如下的几个定义中************
 //腾讯云云通信服务AppId
-#define kTCIMSDKAppId                        @"1400030873"
-#define kTCIMSDKAccountType                  @"12736"
+#define kTCIMSDKAppId                        @"1400030881"
+#define kTCIMSDKAccountType                  @"13374"
 
 //腾讯云对象和存储服务(COS)AppId
 #define kTCCOSAppId                          @""

@@ -18,7 +18,7 @@
 // 配置App中的控件的默认属性
 - (void)configAppearance
 {
-    [[UINavigationBar appearance] setBarTintColor:[UIColor flatRedColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     
     

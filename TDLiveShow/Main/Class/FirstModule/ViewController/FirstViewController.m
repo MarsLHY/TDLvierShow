@@ -8,12 +8,12 @@
 
 #import "FirstViewController.h"
 #import "LiverListCell.h"
-#import "TCPlayViewController_LinkMic.h"
-#import "TCLiveListModel.h"
+#import "TDBaseAppdelegate.h"
 @interface FirstViewController ()<UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *_tableView;
     BOOL         _hasEnterplayVC;   //是否已经进入直播
+    
 }
 @end
 
@@ -83,54 +83,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     LiverListCell *cell = (LiverListCell *)[tableView cellForRowAtIndexPath:indexPath];
-   
-    TCLiveInfo *info = cell.model;
-//    info.userid = @"lhy111";
-//    info.groupid = @"@TGS#aB3KJZZET";
-//    NSLog(@"%@",info.groupid);
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playError:) name:kTCLivePlayError object:nil];
     
     //打开播放界面
+    [[TDBaseAppdelegate sharedAppDelegate] pushViewController:_playVC animated:YES];
     if (_playVC==nil) {
-        _playVC = [[TCPlayViewController_LinkMic alloc] initWithPlayInfo:info videoIsReady:^{
-            if (!_hasEnterplayVC) {
-                [[TDBaseAppdelegate sharedAppDelegate] pushViewController:_playVC animated:YES];
-            }
-        }];
+      
     }
-    
-    //[self performSelector:@selector(enterPlayVC:) withObject:_playVC afterDelay:0.5];
-    
-}
-
--(void)enterPlayVC:(NSObject *)obj{
-    /*
-    if (!_hasEnterplayVC) {
-        [[TDBaseAppdelegate sharedAppDelegate] pushViewController:_playVC animated:YES];
-        _hasEnterplayVC = YES;
-        
-        if (self.listener) {
-            [self.listener onEnterPlayViewController];
-        }
-    }
-     */
-}
-
-/**
- *  TCPlayViewController出错，加入房间失败
- *
- */
-- (void)playError:(NSNotification *)noti {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        /*
-        //加房间失败后，刷新列表，不需要刷新动画
-        self.lives = [NSMutableArray array];
-        self.isLoading = YES;
-        [_liveListMgr queryVideoList:VideoType_LIVE_Online getType:GetType_Up];
-         */
-    });
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kTCLivePlayError object:nil];
 }
 
 @end
